@@ -5,9 +5,9 @@
 [View the Full Roadmap](https://github.com/users/jhshin29/projects/1/views/1)
 ***
 ### 1주차 마일스톤
-![1주차 마일스톤](src/main/resources/static/1주차 마일스톤.png)
+![1주차 마일스톤](src/main/resources/static/1주차%20마일스톤.png)
 ### 2-3주차 마일스톤
-![2-3주차 마일스톤](src/main/resources/static/2_3주차 마일스톤.png)
+![2-3주차 마일스톤](src/main/resources/static/2_3주차%20마일스톤.png)
 ***
 # Flowchart
 ## 예약 flow
