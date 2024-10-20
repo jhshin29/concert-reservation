@@ -1,4 +1,4 @@
-package com.example.concert_reservation;
+package com.hhplus.concert_reservation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
