@@ -6,6 +6,9 @@ import com.hhplus.concert_reservation.core.interfaces.api.common.Response;
 import com.hhplus.concert_reservation.core.interfaces.api.queue.request.CreateQueueTokenRequest;
 import com.hhplus.concert_reservation.core.interfaces.api.queue.response.CreateQueueTokenResponse;
 import com.hhplus.concert_reservation.core.interfaces.api.queue.response.SelectQueueTokenResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +22,7 @@ public class QueueController {
     private final QueueService queueService;
 
     @PostMapping("/token")
+    @Operation(summary = "대기열 토큰 발급 API")
     public Response<CreateQueueTokenResponse> createQueueToken(
             @RequestBody CreateQueueTokenRequest request
     ) {
@@ -26,8 +30,9 @@ public class QueueController {
     }
 
     @PostMapping("/token/check")
+    @Operation(summary = "대기열 토큰 체크 API")
     public Response<SelectQueueTokenResponse> getQueueToken(
-            @RequestHeader("Authorization") String token
+            @Schema(description = "대기열 토큰") @RequestHeader("Authorization") String token
     ) {
         SelectQueueTokenResult response = queueService.checkQueue(token);
         return Response.ok(SelectQueueTokenResponse.of(response.queuePosition(), response.status()));

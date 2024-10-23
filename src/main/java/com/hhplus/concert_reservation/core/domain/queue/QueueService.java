@@ -4,9 +4,10 @@ import com.hhplus.concert_reservation.core.domain.queue.entities.Queue;
 import com.hhplus.concert_reservation.core.domain.queue.entities.QueueStatus;
 import com.hhplus.concert_reservation.core.domain.queue.entities.SelectQueueTokenResult;
 import com.hhplus.concert_reservation.core.domain.queue.repository.QueueRepository;
-import jakarta.transaction.Transactional;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class QueueService {
 
     private final QueueRepository queueRepository;
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public String createQueueToken(Long userId) {
         Queue existedQueue = queueRepository.findByUserIdAndStatusWaitingOrProgress(userId);
 
@@ -27,7 +28,7 @@ public class QueueService {
         return queue.getToken();
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public SelectQueueTokenResult checkQueue(String token) {
         long queuePosition = 0L;
         Queue queue = queueRepository.findByToken(token);

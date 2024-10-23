@@ -1,5 +1,6 @@
 package com.hhplus.concert_reservation.core.domain.user.entities;
 
+import io.jsonwebtoken.Jwts;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -28,4 +29,22 @@ public class Users {
     @Column(nullable = false)
     @ColumnDefault("false")
     private boolean isDeleted;
+
+    public Users(long balance, LocalDateTime createdAt, boolean isDeleted) {
+        this.balance = balance;
+        this.createdAt = createdAt;
+        this.isDeleted = isDeleted;
+    }
+
+    public static long extractUserIdFromJwt(String token) {
+        return Jwts.parserBuilder()
+                .build()
+                .parseClaimsJwt(token)
+                .getBody()
+                .get("userId", Long.class);
+    }
+
+    public long chargeBalance(long balance) {
+        return this.balance += balance;
+    }
 }
