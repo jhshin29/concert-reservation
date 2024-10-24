@@ -61,6 +61,17 @@ public class ConcertSchedule {
     @Comment("삭제여부")
     private boolean isDelete;
 
+    public ConcertSchedule(Long id, Long concertId, LocalDate openDate, LocalDateTime startAt, LocalDateTime endAt, int totalSeats, int remainingSeats, boolean isSoldOut) {
+        this.id = id;
+        this.concertId = concertId;
+        this.openDate = openDate;
+        this.startAt = startAt;
+        this.endAt = endAt;
+        this.totalSeats = totalSeats;
+        this.remainingSeats = remainingSeats;
+        this.isSoldOut = isSoldOut;
+    }
+
     public void isSoldOutCheck() {
         if (isSoldOut) {
             throw new IllegalArgumentException("해당 콘서트는 매진되었습니다.");

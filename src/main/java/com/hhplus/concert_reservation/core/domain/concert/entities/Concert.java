@@ -34,4 +34,9 @@ public class Concert {
     @ColumnDefault("false")
     @Comment("삭제여부")
     private boolean isDelete;
+
+    public Concert(Long id, String title) {
+        this.id = id;
+        this.title = title;
+    }
 }

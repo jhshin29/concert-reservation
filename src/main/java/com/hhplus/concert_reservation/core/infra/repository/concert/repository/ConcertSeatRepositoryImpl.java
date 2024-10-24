@@ -1,6 +1,6 @@
 package com.hhplus.concert_reservation.core.infra.repository.concert.repository;
 
-import com.hhplus.concert_reservation.core.domain.concert.ConcertSeats;
+import com.hhplus.concert_reservation.core.domain.concert.dto.ConcertSeats;
 import com.hhplus.concert_reservation.core.domain.concert.entities.ConcertSeat;
 import com.hhplus.concert_reservation.core.domain.concert.repository.ConcertSeatRepository;
 import com.hhplus.concert_reservation.core.infra.repository.concert.persistence.ConcertSeatJpaRepository;

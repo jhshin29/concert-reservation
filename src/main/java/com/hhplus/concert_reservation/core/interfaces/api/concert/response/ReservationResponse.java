@@ -1,6 +1,6 @@
 package com.hhplus.concert_reservation.core.interfaces.api.concert.response;
 
-import com.hhplus.concert_reservation.core.domain.concert.ReservationResult;
+import com.hhplus.concert_reservation.core.domain.concert.dto.ReservationResult;
 import com.hhplus.concert_reservation.core.domain.reservation.entities.ReservationStatus;
 
 import java.time.LocalDateTime;

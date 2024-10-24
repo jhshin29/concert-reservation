@@ -1,14 +1,13 @@
 package com.hhplus.concert_reservation.core.interfaces.api.queue;
 
 import com.hhplus.concert_reservation.core.domain.queue.QueueService;
-import com.hhplus.concert_reservation.core.domain.queue.entities.SelectQueueTokenResult;
+import com.hhplus.concert_reservation.core.domain.queue.dto.SelectQueueTokenResult;
 import com.hhplus.concert_reservation.core.interfaces.api.common.Response;
 import com.hhplus.concert_reservation.core.interfaces.api.queue.request.CreateQueueTokenRequest;
 import com.hhplus.concert_reservation.core.interfaces.api.queue.response.CreateQueueTokenResponse;
 import com.hhplus.concert_reservation.core.interfaces.api.queue.response.SelectQueueTokenResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

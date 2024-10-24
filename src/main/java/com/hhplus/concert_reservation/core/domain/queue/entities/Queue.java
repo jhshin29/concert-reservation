@@ -44,6 +44,13 @@ public class Queue {
     @Comment("대기열 만료 시간")
     private LocalDateTime expiredAt;
 
+    public Queue(long userId, String token, QueueStatus status, LocalDateTime expiredAt) {
+        this.userId = userId;
+        this.token = token;
+        this.status = status;
+        this.expiredAt = expiredAt;
+    }
+
     public Queue(long userId, String token) {
         this.userId = userId;
         this.token = token;
@@ -80,7 +87,7 @@ public class Queue {
 
             LocalDateTime expireAt = LocalDateTime.now().plusMinutes(10);
 
-            this.status = QueueStatus.WAITING;
+            this.status = QueueStatus.PROGRESS;
             this.enteredAt = expireAt;
         } else {
             if (this.getStatus() == QueueStatus.EXPIRED) {

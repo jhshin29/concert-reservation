@@ -1,6 +1,6 @@
 package com.hhplus.concert_reservation.core.infra.repository.concert.persistence;
 
-import com.hhplus.concert_reservation.core.domain.concert.ConcertSeats;
+import com.hhplus.concert_reservation.core.domain.concert.dto.ConcertSeats;
 import com.hhplus.concert_reservation.core.domain.concert.entities.ConcertSeat;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;

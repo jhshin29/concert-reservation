@@ -30,6 +30,13 @@ public class Users {
     @ColumnDefault("false")
     private boolean isDeleted;
 
+    public Users(Long id, long balance) {
+        this.id = id;
+        this.balance = balance;
+        this.createdAt = LocalDateTime.now();
+        this.isDeleted = false;
+    }
+
     public static long extractUserIdFromJwt(String token) {
         return Jwts.parserBuilder()
                 .build()

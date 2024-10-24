@@ -51,6 +51,17 @@ public class ConcertSeat {
     @Comment("삭제여부")
     private boolean isDelete;
 
+    public ConcertSeat(Long id, Long concertScheduleId, long amount, int seatNumber, SeatStatus seatStatus, LocalDateTime reservedUntilAt) {
+        this.id = id;
+        this.concertScheduleId = concertScheduleId;
+        this.amount = amount;
+        this.seatNumber = seatNumber;
+        this.seatStatus = seatStatus;
+        this.reservedUntilAt = reservedUntilAt;
+        this.createdAt = LocalDateTime.now();
+        this.isDelete = false;
+    }
+
     public void isReserveCheck() {
         if (seatStatus != SeatStatus.AVAILABLE) {
             throw new IllegalArgumentException("해당 좌석은 예약할 수 없는 상태 입니다.");

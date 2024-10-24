@@ -1,6 +1,6 @@
 package com.hhplus.concert_reservation.core.interfaces.api.concert.response;
 
-import com.hhplus.concert_reservation.core.domain.concert.ConcertSeats;
+import com.hhplus.concert_reservation.core.domain.concert.dto.ConcertSeats;
 import com.hhplus.concert_reservation.core.domain.concert.entities.SeatStatus;
 
 import java.util.List;

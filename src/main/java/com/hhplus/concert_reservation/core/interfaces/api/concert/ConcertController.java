@@ -1,6 +1,10 @@
 package com.hhplus.concert_reservation.core.interfaces.api.concert;
 
 import com.hhplus.concert_reservation.core.domain.concert.*;
+import com.hhplus.concert_reservation.core.domain.concert.dto.ConcertSchedules;
+import com.hhplus.concert_reservation.core.domain.concert.dto.ConcertSeats;
+import com.hhplus.concert_reservation.core.domain.concert.dto.PaymentConcertResult;
+import com.hhplus.concert_reservation.core.domain.concert.dto.ReservationResult;
 import com.hhplus.concert_reservation.core.interfaces.api.common.Response;
 import com.hhplus.concert_reservation.core.interfaces.api.concert.request.PaymentConcertRequest;
 import com.hhplus.concert_reservation.core.interfaces.api.concert.request.ReserveConcertRequest;

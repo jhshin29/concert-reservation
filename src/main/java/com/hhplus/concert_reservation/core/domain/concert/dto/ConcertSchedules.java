@@ -1,4 +1,4 @@
-package com.hhplus.concert_reservation.core.domain.concert;
+package com.hhplus.concert_reservation.core.domain.concert.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

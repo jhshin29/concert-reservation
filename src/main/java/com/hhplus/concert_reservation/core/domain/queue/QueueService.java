@@ -2,7 +2,7 @@ package com.hhplus.concert_reservation.core.domain.queue;
 
 import com.hhplus.concert_reservation.core.domain.queue.entities.Queue;
 import com.hhplus.concert_reservation.core.domain.queue.entities.QueueStatus;
-import com.hhplus.concert_reservation.core.domain.queue.entities.SelectQueueTokenResult;
+import com.hhplus.concert_reservation.core.domain.queue.dto.SelectQueueTokenResult;
 import com.hhplus.concert_reservation.core.domain.queue.repository.QueueRepository;
 
 import lombok.RequiredArgsConstructor;
