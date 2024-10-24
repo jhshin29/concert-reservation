@@ -18,9 +18,4 @@ public class UserRepositoryImpl implements UserRepository {
         return userJpaRepository.findById(userId)
                 .orElseThrow(() -> new EntityNotFoundException("유저를 찾을 수 없습니다."));
     }
-
-    @Override
-    public void save(Users users) {
-        userJpaRepository.save(users);
-    }
 }

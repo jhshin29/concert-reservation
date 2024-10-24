@@ -16,12 +16,6 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("")
-    public Response<Boolean> createUser() {
-        userService.createUser();
-        return Response.ok(true);
-    }
-
     // 결제에 사용될 잔액 조회
     @GetMapping("/balance")
     public Response<UserBalanceResponse> getBalance(

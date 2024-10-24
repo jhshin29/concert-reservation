@@ -17,8 +17,6 @@ public class UserService {
     @Transactional(readOnly = true)
     public Long getBalance(String token) {
         long userId = Users.extractUserIdFromJwt(token);
-        System.out.println("userId check");
-        System.out.println(userId);
         return userRepository.findById(userId).getBalance();
     }
 
@@ -28,11 +26,5 @@ public class UserService {
         Users users = userRepository.findById(userId);
         users.chargeBalance(balance);
         return users.getBalance();
-    }
-
-    @Transactional(rollbackFor = Exception.class)
-    public void createUser() {
-        Users newUser = new Users(100000, LocalDateTime.now(), false);
-        userRepository.save(newUser);
     }
 }
