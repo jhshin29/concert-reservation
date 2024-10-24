@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface ConcertSeatJpaRepository extends JpaRepository<ConcertSeat, Long> {
 
     @Query("""
-                select new com.hhplus.concert_reservation.core.domain.concert.ConcertSeats(
+                select new com.hhplus.concert_reservation.core.domain.concert.dto.ConcertSeats(
                     cs.id,
                     cs.amount,
                     cs.seatNumber,

@@ -10,7 +10,7 @@ import java.util.List;
 public interface ConcertScheduleJpaRepository extends JpaRepository<ConcertSchedule, Long> {
 
     @Query("""
-                select new com.hhplus.concert_reservation.core.domain.concert.ConcertSchedules(
+                select new com.hhplus.concert_reservation.core.domain.concert.dto.ConcertSchedules(
                     cs.id,
                     c.title,
                     cs.openDate,
