@@ -45,4 +45,17 @@ public class PaymentHistory {
     @ColumnDefault("false")
     @Comment("삭제여부")
     private boolean isDelete = false;
+
+    public PaymentHistory(Long userId, Long amount, PaymentType paymentType, Long paymentId) {
+        this.userId = userId;
+        this.paymentId = paymentId;
+        this.amountChange = amount;
+        this.type = paymentType;
+        this.createdAt = LocalDateTime.now();
+        this.isDelete = false;
+    }
+
+    public static PaymentHistory enterPaymentHistory(Long userId, Long amount, PaymentType paymentType, Long paymentId) {
+        return new PaymentHistory(userId, amount, paymentType, paymentId);
+    }
 }

@@ -61,4 +61,9 @@ public class ConcertSchedule {
     @Comment("삭제여부")
     private boolean isDelete;
 
+    public void isSoldOutCheck() {
+        if (isSoldOut) {
+            throw new IllegalArgumentException("해당 콘서트는 매진되었습니다.");
+        }
+    }
 }

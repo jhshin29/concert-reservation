@@ -38,7 +38,17 @@ public class Users {
                 .get("userId", Long.class);
     }
 
-    public long chargeBalance(long balance) {
-        return this.balance += balance;
+    public void chargeBalance(long balance) {
+        if (0 >= balance) {
+            throw new IllegalArgumentException("금액을 1원 이상으로 설정해주세요.");
+        }
+        this.balance += balance;
+    }
+
+    public void checkConcertAmount(long seatAmount) {
+        if (this.balance < seatAmount) {
+            throw new IllegalArgumentException("결제할 잔액이 부족합니다.");
+        }
+        this.balance -= balance;
     }
 }

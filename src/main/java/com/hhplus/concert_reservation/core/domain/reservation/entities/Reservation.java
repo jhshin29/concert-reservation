@@ -1,5 +1,9 @@
 package com.hhplus.concert_reservation.core.domain.reservation.entities;
 
+import com.hhplus.concert_reservation.core.domain.concert.entities.Concert;
+import com.hhplus.concert_reservation.core.domain.concert.entities.ConcertSchedule;
+import com.hhplus.concert_reservation.core.domain.concert.entities.ConcertSeat;
+import com.hhplus.concert_reservation.core.domain.user.entities.Users;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -23,7 +27,7 @@ public class Reservation {
 
     @Column(nullable = false)
     @Comment("유저 ID")
-    private String userId;
+    private Long userId;
 
     @Column(nullable = false)
     @Comment("좌석 ID")
@@ -73,4 +77,30 @@ public class Reservation {
     @ColumnDefault("false")
     @Comment("삭제여부")
     private boolean isDelete;
+
+    public Reservation(Long userId, Long seatId, String concertTitle, LocalDate concertOpenDate, LocalDateTime concertStartAt, LocalDateTime concertEndAt, long seatAmount, int seatNumber) {
+        this.userId = userId;
+        this.seatId = seatId;
+        this.concertTitle = concertTitle;
+        this.concertOpenDate = concertOpenDate;
+        this.concertStartAt = concertStartAt;
+        this.concertEndAt = concertEndAt;
+        this.seatAmount = seatAmount;
+        this.seatNumber = seatNumber;
+        this.status = ReservationStatus.TEMP_RESERVED;
+        this.reservedAt = LocalDateTime.now();
+        this.reservedUntilAt = LocalDateTime.now().plusMinutes(5);
+        this.createdAt = LocalDateTime.now();
+        this.isDelete = false;
+    }
+
+    public static Reservation enterReservation(Users user, Concert concert, ConcertSeat concertSeat, ConcertSchedule concertSchedule) {
+        return new Reservation(user.getId(), concertSeat.getId(), concert.getTitle(), concertSchedule.getOpenDate(), concertSchedule.getStartAt(), concertSchedule.getEndAt(), concertSeat.getAmount(), concertSeat.getSeatNumber());
+    }
+
+    public void finishReserve() {
+        if (this.status == ReservationStatus.TEMP_RESERVED) {
+            this.status = ReservationStatus.RESERVED;
+        }
+    }
 }

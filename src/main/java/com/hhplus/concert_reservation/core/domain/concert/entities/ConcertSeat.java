@@ -50,4 +50,16 @@ public class ConcertSeat {
     @ColumnDefault("false")
     @Comment("삭제여부")
     private boolean isDelete;
+
+    public void isReserveCheck() {
+        if (seatStatus != SeatStatus.AVAILABLE) {
+            throw new IllegalArgumentException("해당 좌석은 예약할 수 없는 상태 입니다.");
+        } else {
+            seatStatus = SeatStatus.TEMP_RESERVED;
+        }
+    }
+
+    public void finishSeatReserve() {
+        this.seatStatus = SeatStatus.RESERVED;
+    }
 }

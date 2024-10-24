@@ -46,4 +46,21 @@ public class Payment {
     @ColumnDefault("false")
     @Comment("삭제여부")
     private boolean isDelete;
+
+    public Payment(Long userId, Long reservationId, long price, PaymentStatus status) {
+        this.userId = userId;
+        this.reservationId = reservationId;
+        this.price = price;
+        this.status = status;
+        this.createdAt = LocalDateTime.now();
+        this.isDelete = false;
+    }
+
+    public static Payment enterPayment(long userId, long reservationId, long price, PaymentStatus status) {
+        return new Payment(userId, reservationId, price, status);
+    }
+
+    public void finishPayment() {
+        this.status = PaymentStatus.DONE;
+    }
 }

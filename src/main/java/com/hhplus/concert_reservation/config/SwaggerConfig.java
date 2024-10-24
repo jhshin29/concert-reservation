@@ -25,9 +25,9 @@ public class SwaggerConfig {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
-                .info(new Info().title("API Documentation")
+                .info(new Info().title("콘서트 예약 서비스")
                         .version("1.0.0")
-                        .description("API documentation with JWT authentication"))
+                        .description("콘서트를 예약할 수 있는 서비스입니다."))
                 .security(getSecurityRequirement())
                 .components(new Components());
     }

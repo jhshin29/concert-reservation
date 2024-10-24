@@ -88,4 +88,14 @@ public class Queue {
             }
         }
     }
+
+    public void tokenReserveCheck() {
+        if (status != QueueStatus.PROGRESS) {
+            throw new IllegalArgumentException("정상적인 프로세스로 접근하지 않았습니다. 다시 대기열에 접근해주세요.");
+        }
+    }
+
+    public void finishQueue() {
+        this.status = QueueStatus.DONE;
+    }
 }
