@@ -49,4 +49,13 @@ public class QueueRepositoryImpl implements QueueRepository {
         return queueJpaRepository.findByStatusAndAlreadyEnteredBy(enteredAt, queueStatus);
     }
 
+    @Override
+    public void updateTokenToExpired() {
+        queueJpaRepository.updateTokenToExpired(
+                QueueStatus.EXPIRED,
+                QueueStatus.PROGRESS,
+                LocalDateTime.now()
+        );
+    }
+
 }

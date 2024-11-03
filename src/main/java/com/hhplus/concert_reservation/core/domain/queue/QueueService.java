@@ -42,4 +42,9 @@ public class QueueService {
 
         return new SelectQueueTokenResult(queuePosition, queue.getStatus());
     }
+
+    @Transactional
+    public void changeTokenToExpired() {
+        queueRepository.updateTokenToExpired();
+    }
 }

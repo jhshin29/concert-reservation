@@ -19,4 +19,6 @@ public interface QueueRepository {
     List<Queue> findByStatusOrderByIdDesc(QueueStatus queueStatus);
 
     Long findByStatusAndAlreadyEnteredBy(LocalDateTime enteredAt, QueueStatus queueStatus);
+
+    void updateTokenToExpired();
 }
