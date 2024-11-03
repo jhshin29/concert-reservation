@@ -23,7 +23,7 @@ public class UserService {
     @Transactional(rollbackFor = Exception.class)
     public long chargeBalance(String token, long balance) {
         long userId = Users.extractUserIdFromJwt(token);
-        Users users = userRepository.findById(userId);
+        Users users = userRepository.findByIdWithLock(userId);
         users.chargeBalance(balance);
         return users.getBalance();
     }

@@ -18,4 +18,10 @@ public class UserRepositoryImpl implements UserRepository {
         return userJpaRepository.findById(userId)
                 .orElseThrow(() -> new EntityNotFoundException("유저를 찾을 수 없습니다."));
     }
+
+    @Override
+    public Users findByIdWithLock(long userId) {
+        return userJpaRepository.findByIdWithLock(userId)
+                .orElseThrow(() -> new EntityNotFoundException("유저를 찾을 수 없습니다."));
+    }
 }
