@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Comment;
 
+import java.nio.file.AccessDeniedException;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -104,5 +105,15 @@ public class Queue {
 
     public void finishQueue() {
         this.status = QueueStatus.DONE;
+    }
+
+    public void checkToken() throws AccessDeniedException {
+        if (this.status != QueueStatus.PROGRESS) {
+            throw new AccessDeniedException("권한이 없습니다.");
+        }
+
+        if (!this.expiredAt.isAfter(LocalDateTime.now())) {
+            throw new AccessDeniedException("권한이 없습니다.");
+        }
     }
 }
